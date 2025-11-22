@@ -1,11 +1,8 @@
-# app.py na raiz do projeto
+# Arquivo: app.py (na raiz do seu projeto)
+
+# 1. Importa a função Application Factory do seu módulo 'app'
 from app import create_app
 
-# O Vercel procurará uma variável chamada 'app'
-# Esta linha executa sua Application Factory e atribui 
-# a instância do Flask à variável 'app'.
+# 2. Executa a função e atribui a instância do Flask à variável 'app'
+# Esta é a variável EXPOSTA que o Vercel procura
 app = create_app()
-
-# Se você quiser rodar localmente com python app.py:
-# if __name__ == '__main__':
-#     app.run(debug=True)
