@@ -1,8 +1,15 @@
-# Arquivo: app.py (na raiz do seu projeto)
+from flask import Flask, render_template
+from .comments_controller import comments_bp
 
-# 1. Importa a função Application Factory do seu módulo 'app'
-from app import create_app
+def create_app():
+    app = Flask(__name__)
 
-# 2. Executa a função e atribui a instância do Flask à variável 'app'
-# Esta é a variável EXPOSTA que o Vercel procura
-app = create_app()
+    @app.route("/")
+    def home():
+        return render_template("index.html")  # <-- aqui chamamos o template
+
+    # registra a blueprint de comentários
+    app.register_blueprint(comments_bp)
+
+    return app
+1
